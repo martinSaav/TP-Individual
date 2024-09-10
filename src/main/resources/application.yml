@@ -5,7 +5,7 @@ spring:
     name: SnapMsg
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/db1?serverTimezone=UTC
+    url: jdbc:mysql://localhost/snap_msg?serverTimezone=UTC
     username: root
     password: ''
   jpa:
