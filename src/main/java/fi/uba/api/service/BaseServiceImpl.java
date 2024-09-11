@@ -15,7 +15,6 @@ public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> i
 
     protected BaseRepository<E, ID> baseRepository;
 
-
     protected BaseServiceImpl(BaseRepository<E, ID> baseRepository) {
         this.baseRepository = baseRepository;
     }
@@ -24,7 +23,6 @@ public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> i
     public List<E> findAll() {
         return baseRepository.findAll();
     }
-
 
     @Override
     public E findById(ID id) {
@@ -37,10 +35,9 @@ public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> i
         return baseRepository.save(entity);
     }
 
-
     @Transactional
     @Override
-    public boolean delete(ID id) {
+    public boolean delete(ID id) throws EntityNotFoundException {
         E entityFound = findByIdAux(id);
         baseRepository.delete(entityFound);
         return true;
